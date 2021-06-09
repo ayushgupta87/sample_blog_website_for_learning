@@ -1,0 +1,8 @@
+{
+  "params" : {
+    "local_server" : "True",
+    "local_uri" : "sqlite:///data.db",
+    "prod_uri" : "DATABASE_URL",
+    "no_of_post" : 5
+  }
+}

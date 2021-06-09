@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block body %}
+<!-- Page Header-->
+<header class="masthead" style=" background-image: url( '{{ url_for( 'static', filename='assets/img/home-bg.jpg') }}')">
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="site-heading">
+          <h1>Admin Panel</h1>
+          <span class="subheading">Manage your posts and change them</span>
+          <hr>
+
+          <a href="/logout">  <button type="button" class="btn btn-success" name="button" type="button">Logout</button></a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+  <div class="row gx-4 gx-lg-5 justify-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+      <!-- Post preview-->
+<h2>Basic Actions</h2>
+<a href="/edit/0"><button type="button" class="btn btn-primary" name="button">Add New Post</button></a>
+  <hr>
+  <h2>Upload File</h2>
+  We will add file uploader here
+  <hr>
+<h2>Edit Posts</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Title</th>
+            <th>Date</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for post in posts %}
+
+          <tr>
+            <td>{{post.sno}}</td>
+            <td>{{post.title}}</td>
+            <td>{{post.date}}</td>
+            <th><a href="/edit/{{post.sno}}"><button type="button" class="btn btn-primary" name="button">Edit</button></a></th>
+            <th><a href="/elete/{{post.sno}}"><button type="button" class="btn btn-primary" name="button">Delete</button></a></th>
+          </tr>
+          {% endfor %}
+        </tbody>
+
+      </table>
+
+
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
